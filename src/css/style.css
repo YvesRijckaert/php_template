@@ -1,0 +1,172 @@
+@import 'reset';
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+*, *:before, *:after { /* stylelint-disable-line */
+  box-sizing: inherit;
+}
+
+body {
+  height: 100vh;
+  font-size: 1.5rem;
+}
+
+.about-title {
+  color: red;
+  font-size: 13rem;
+}
+
+input, textarea, button {
+	border: solid 1px #999;
+	background: white;
+}
+
+a {
+	color: blue;
+}
+
+.hidden {
+	display: none;
+}
+
+.error {
+	color: red;
+}
+
+.info {
+	color: green;
+}
+
+.box {
+	font-size: 2em;
+	border: solid 1px;
+	padding: 1em;
+	margin-bottom: 1em;
+}
+
+.box.error {
+	border-color: red;
+}
+
+.box.info {
+	border-color: green;
+}
+
+.site-container {
+	width: 600px;
+	margin: 10em auto;
+	position: relative;
+}
+
+.site-header {
+	font-size: 4em;
+	margin-bottom: 1em;
+}
+
+.page-header {
+	font-size: 3em;
+	margin-bottom: 1em;
+}
+
+.page-content {
+	font-size: 2em;
+	line-height: 1em;
+}
+
+.page-content p {
+	margin-bottom: 1em;
+}
+
+.page-section{
+	margin-bottom: 3em;
+}
+
+.page-section-header {
+	font-size: 1.3em;
+	margin-bottom: 0.7em;
+}
+
+.login-container {
+	position: absolute;
+	top: 0.4em;
+	right: 0;
+	font-size: 2em;
+}
+
+.login-form, .login-form .input-container, .login-form .form-submit {
+	vertical-align: middle;
+	display: inline-block;
+}
+
+.login-form .form-submit {
+	margin-left: 0;
+}
+
+.oneliner, .comeback {
+	margin-bottom: 1em;
+}
+
+.comeback {
+	font-size: 0.8em;
+}
+
+.oneliner-text {
+}
+
+.oneliner-text:before, .comeback-text:before {
+	content: "\201C";
+}
+
+.oneliner-text:after, .comeback-text:after {
+	content: "\201D";
+}
+
+.oneliner-author, .comeback-author {
+	font-size: 0.9em;
+	font-style: italic;
+}
+
+.oneliner-author:before, .comeback-author:before {
+	content: " - ";
+}
+
+.input-container {
+	font-size: 0.8em;
+	margin-bottom: 0.5em;
+}
+
+.form-text, .form-input, .form-label, .form-submit {
+	padding: 0.5em;
+	display: inline-block;
+	vertical-align: top;
+}
+
+.form-label {
+	width: 7em;
+	padding: 0;
+}
+
+.form-text {
+	width: 20em;
+	height: 4em;
+}
+
+.form-submit {
+	cursor: pointer;
+	display: inline-block;
+	margin-left: 10.5em;
+}
+
+nav {
+  width: 30rem;
+}
+
+.menuitem--active,
+.menuitem--active a {
+  font-weight: bold;
+  background: black;
+  color: white;
+}
