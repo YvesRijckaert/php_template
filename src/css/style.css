@@ -20,152 +20,148 @@ body {
 }
 
 input, textarea, button {
-	border: solid 1px #999;
-	background: white;
+  border: solid 1px #999;
+  background: white;
 }
 
 a {
-	color: blue;
+  color: blue;
 }
 
 .hidden {
-	display: none;
+  display: none;
 }
 
 .error {
-	color: red;
+  color: red;
 }
 
 .info {
-	color: green;
+  color: green;
 }
 
 .box {
-	font-size: 2em;
-	border: solid 1px;
-	padding: 1em;
-	margin-bottom: 1em;
+  font-size: 2em;
+  border: solid 1px;
+  padding: 1em;
+  margin-bottom: 1em;
 }
 
 .box.error {
-	border-color: red;
+  border-color: red;
 }
 
 .box.info {
-	border-color: green;
+  border-color: green;
 }
 
 .site-container {
-	width: 600px;
-	margin: 10em auto;
-	position: relative;
+  width: 600px;
+  margin: 10em auto;
+  position: relative;
 }
 
 .site-header {
-	font-size: 4em;
-	margin-bottom: 1em;
+  font-size: 4em;
+  margin-bottom: 1em;
 }
 
 .page-header {
-	font-size: 3em;
-	margin-bottom: 1em;
+  font-size: 3em;
+  margin-bottom: 1em;
 }
 
 .page-content {
-	font-size: 2em;
-	line-height: 1em;
+  font-size: 2em;
+  line-height: 1em;
 }
 
 .page-content p {
-	margin-bottom: 1em;
+  margin-bottom: 1em;
 }
 
-.page-section{
-	margin-bottom: 3em;
+.page-section {
+  margin-bottom: 3em;
 }
 
 .page-section-header {
-	font-size: 1.3em;
-	margin-bottom: 0.7em;
+  font-size: 1.3em;
+  margin-bottom: .7em;
 }
 
 .login-container {
-	position: absolute;
-	top: 0.4em;
-	right: 0;
-	font-size: 2em;
+  position: absolute;
+  top: .4em;
+  right: 0;
+  font-size: 2em;
 }
 
 .login-form, .login-form .input-container, .login-form .form-submit {
-	vertical-align: middle;
-	display: inline-block;
+  vertical-align: middle;
+  display: inline-block;
 }
 
 .login-form .form-submit {
-	margin-left: 0;
+  margin-left: 0;
 }
 
 .oneliner, .comeback {
-	margin-bottom: 1em;
+  margin-bottom: 1em;
 }
 
 .comeback {
-	font-size: 0.8em;
+  font-size: .8em;
 }
 
-.oneliner-text {
+.oneliner-text::before, .comeback-text::before {
+  content: '\201c';
 }
 
-.oneliner-text:before, .comeback-text:before {
-	content: "\201C";
-}
-
-.oneliner-text:after, .comeback-text:after {
-	content: "\201D";
+.oneliner-text::after, .comeback-text::after {
+  content: '\201d';
 }
 
 .oneliner-author, .comeback-author {
-	font-size: 0.9em;
-	font-style: italic;
+  font-size: .9em;
+  font-style: italic;
 }
 
-.oneliner-author:before, .comeback-author:before {
-	content: " - ";
+.oneliner-author::before, .comeback-author::before {
+  content: ' - ';
 }
 
 .input-container {
-	font-size: 0.8em;
-	margin-bottom: 0.5em;
+  font-size: .8em;
+  margin-bottom: .5em;
 }
 
 .form-text, .form-input, .form-label, .form-submit {
-	padding: 0.5em;
-	display: inline-block;
-	vertical-align: top;
+  padding: .5em;
+  display: inline-block;
+  vertical-align: top;
 }
 
 .form-label {
-	width: 7em;
-	padding: 0;
+  width: 7em;
+  padding: 0;
 }
 
 .form-text {
-	width: 20em;
-	height: 4em;
+  width: 20em;
+  height: 4em;
 }
 
 .form-submit {
-	cursor: pointer;
-	display: inline-block;
-	margin-left: 10.5em;
+  cursor: pointer;
+  display: inline-block;
+  margin-left: 10.5em;
 }
 
 nav {
   width: 30rem;
 }
 
-.menuitem--active,
-.menuitem--active a {
+.menuitem--active, .menuitem--active a {
   font-weight: bold;
   background: black;
   color: white;
