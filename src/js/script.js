@@ -1,5 +1,6 @@
+{
+  const init = () => {
+  };
 
-const init = () => {
-};
-
-init();
+  init();
+}

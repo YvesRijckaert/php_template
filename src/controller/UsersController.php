@@ -16,8 +16,8 @@ class UsersController extends Controller {
   }
 
   public function register() {
-    if (!empty($_POST)) { //als er een POST is gebeurd
-      $errors = array(); //maak een nieuwe errors arry aan
+    if (!empty($_POST)) {
+      $errors = array();
       if (empty($_POST['email'])) {
         $errors['email'] = 'Please enter your email';
       } else {

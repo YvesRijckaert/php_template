@@ -1,60 +1,60 @@
 <?php
-session_start(); //sessions aanzetten
-ini_set('display_errors', true); //toon alle errors
-error_reporting(E_ALL); //report alle errors in de browser
+session_start();
+ini_set('display_errors', true);
+error_reporting(E_ALL);
 
-$routes = array( //alle pagina's
-  'home' => array( //Home pagina
-    'controller' => 'Pages', //heeft de controller Pages
-    'action' => 'index' //met fucntie index
+$routes = array(
+  'home' => array(
+    'controller' => 'Pages',
+    'action' => 'index'
   ),
-  'about' => array( //About pagina
-    'controller' => 'Pages', //heeft de controller Pages
-    'action' => 'about' //met functie about
+  'about' => array(
+    'controller' => 'Pages',
+    'action' => 'about'
   ),
-  'items' => array( //Items pagina
-    'controller' => 'Items', //heeft de controller Items
-    'action' => 'items' //met functie loadItems
+  'items' => array(
+    'controller' => 'Items',
+    'action' => 'items'
   ),
-  'detail' => array( //Detail pagina
-    'controller' => 'Images', //heeft de controller Images
-    'action' => 'view' //met functie view
+  'detail' => array(
+    'controller' => 'Images',
+    'action' => 'view'
   ),
-  'add' => array( //Add pagina
-    'controller' => 'Images', //heeft de controller Images
-    'action' => 'add' //met functie add
+  'add' => array(
+    'controller' => 'Images',
+    'action' => 'add'
   ),
-  'login' => array( //Login pagina
-    'controller' => 'Users', //heeft de controller Users
-    'action' => 'login' //met functie login
+  'login' => array(
+    'controller' => 'Users',
+    'action' => 'login'
   ),
-  'logout' => array( //Logout pagina
-    'controller' => 'Users', //heeft de controller Users
-    'action' => 'logout' //met functie logout
+  'logout' => array(
+    'controller' => 'Users',
+    'action' => 'logout'
   ),
-  'register' => array( //Register pagina
-    'controller' => 'Users', //heeft de controller Users
-    'action' => 'register' //met functie register
+  'register' => array(
+    'controller' => 'Users',
+    'action' => 'register'
   )
 );
 
-//eerste check = checken of we we wel een pagina hebben opgevraagt
-if(empty($_GET['page'])) { //is er een parameter page meegegeven? Als deze leeg is dan:
-  $_GET['page'] = 'home'; //stel je de parameter in op home, zo verwijs je dan automatisch naar de home pagina
+
+if(empty($_GET['page'])) {
+  $_GET['page'] = 'home';
 }
 
-//tweede check = kijken of die pagina wel bestaat in de routes array dat opgevraagt is
+
 if(empty($routes[$_GET['page']])) {
-  header('Location: index.php'); //zo niet dan gaat hij automatisch naar de index pagina
+  header('Location: index.php');
   exit();
 }
 
-$route = $routes[$_GET['page']]; //de routes steken we nu in een aparte variabele route
-$controllerName = $route['controller'] . 'Controller'; //daaraan plakken we nu de controller aan
+$route = $routes[$_GET['page']];
+$controllerName = $route['controller'] . 'Controller';
 
-require_once __DIR__ . '/controller/' . $controllerName . ".php"; //haal nu die controller op van de pagina da je wilt laden en plak er .php aan
+require_once __DIR__ . '/controller/' . $controllerName . ".php";
 
-$controllerObj = new $controllerName(); //nieuwe controller name aanmaken
-$controllerObj->route = $route; //route variabele gaan instellen
-$controllerObj->filter(); //dan roepen we de filter functie op (in Controller.php)
-$controllerObj->render(); //dan roepen we de render functie op (in Controller.php)
+$controllerObj = new $controllerName();
+$controllerObj->route = $route;
+$controllerObj->filter();
+$controllerObj->render();

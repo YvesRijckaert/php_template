@@ -2,27 +2,32 @@
 
 class Controller {
 
-  public $route; //de route is publiek beschikbaar
-  protected $viewVars = array(); //viewVars is enkel beschikbaar bij overerving
+  public $route;
+  protected $viewVars = array();
   protected $env = 'development';
 
-  public function filter() { //filter functie
+  public function filter() {
     if (basename(dirname(dirname(__FILE__))) != 'src') {
       $this->env = 'production';
     }
-    call_user_func(array($this, $this->route['action'])); //dit laat ons toe om functies te gaan oproepen die we zelf geschreven hebben
-    //vb. action =>index
+    call_user_func(array($this, $this->route['action']));
   }
 
-  public function render() { //render functie
+  public function render() {
     $this->set('js', '<script src="http://localhost:8080/js/script.js"></script>');
     $this->set('css', '');
     if($this->env == 'production') {
       $this->set('js', '<script src="js/script.js"></script>');
       $this->set('css', '<link rel="stylesheet" href="css/style.css">');
     }
-    $this->createViewVarWithContent(); //maak eerst dit aan
-    $this->renderInLayout(); //doe dan dit
+    $this->createViewVarWithContent();
+    $this->renderInLayout();
+    if (!empty($_SESSION['info'])) {
+      unset($_SESSION['info']);
+    }
+    if (!empty($_SESSION['error'])) {
+      unset($_SESSION['error']);
+    }
   }
 
   public function set($variableName, $value) {
@@ -31,15 +36,15 @@ class Controller {
 
   private function createViewVarWithContent() {
     extract($this->viewVars, EXTR_OVERWRITE);
-    ob_start(); //output buffer (als je gaat outputten ga je even bijhouden in een buffer)
-    require __DIR__ . '/../view/' . strtolower($this->route['controller']) . '/' . $this->route['action'] . '.php'; //controller name gebruiken en naar kleine letters omzetten en we halen het mapje pages op en we plakken er action aan
-    $content = ob_get_clean(); //al hetgeen wat in de buffer zit, steek je in de variabele content
-    $this->set('content', $content); //dan gaan we die content nog eens gaan setten in een nieuwe variabele content dat je gebruikt in layout.php
+    ob_start();
+    require __DIR__ . '/../view/' . strtolower($this->route['controller']) . '/' . $this->route['action'] . '.php';
+    $content = ob_get_clean();
+    $this->set('content', $content);
   }
 
   private function renderInLayout() {
-    extract($this->viewVars, EXTR_OVERWRITE); //alle viewvars gaan extracten
-    include __DIR__ . '/../view/layout.php'; //layout gaan includen
+    extract($this->viewVars, EXTR_OVERWRITE);
+    include __DIR__ . '/../view/layout.php';
   }
 
 }

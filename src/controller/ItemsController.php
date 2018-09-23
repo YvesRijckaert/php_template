@@ -1,21 +1,21 @@
 <?php
 
-require_once __DIR__ . '/Controller.php'; //laad controller file in
-require_once __DIR__ . '/../dao/ItemDAO.php'; //laad itemDAO in
+require_once __DIR__ . '/Controller.php';
+require_once __DIR__ . '/../dao/ItemDAO.php';
 
-class ItemsController extends Controller { //geef ItemsController dezelfde macht als Controller
+class ItemsController extends Controller {
 
     private $itemDAO;
 
     function __construct() {
-        $this->itemDAO = new ItemDAO(); //ItemDAO activeren
+        $this->itemDAO = new ItemDAO();
     }
 
-    public function items() { //de functie loadItems
-        $items = $this->itemDAO->selectAll(); //voer selectAll uit in itemDAO
-        $this->set('items', $items); //alle items die je terugkreeg
-        $this->set('title', 'Items'); //de title van de pagina is Items
-        $this->set('currentPage', 'items'); //de currentPage is items
+    public function items() {
+        $items = $this->itemDAO->selectAll();
+        $this->set('items', $items);
+        $this->set('title', 'Items');
+        $this->set('currentPage', 'items');
     }
 
 }

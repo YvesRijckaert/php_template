@@ -1,17 +1,17 @@
 <?php
 
-require_once __DIR__ . '/Controller.php'; //haal de functionaliteit op van de Controller
+require_once __DIR__ . '/Controller.php';
 
-class PagesController extends Controller { //geef PagesController dezelfde macht als Controller
+class PagesController extends Controller {
 
-    public function index() { //de index pagina
-        $this->set('title', 'Home'); //de title zetten we op home
-        $this->set('currentPage', 'home'); //de currentPage = home
+    public function index() {
+        $this->set('title', 'Home');
+        $this->set('currentPage', 'home');
     }
 
-    public function about() { //de about pagina
-        $this->set('title', 'About'); //title zetten we op about
-        $this->set('currentPage', 'about'); //de currentPage = about
+    public function about() {
+        $this->set('title', 'About');
+        $this->set('currentPage', 'about');
     }
 
 }
